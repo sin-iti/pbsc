@@ -26,7 +26,7 @@ let config: webpack.Configuration = {
     },
     target: "web",
     output: {
-        path: path.resolve(__dirname, "./dist/"),
+        path: path.resolve(__dirname, "./dist/src"),
         filename: '[name].js'
     },
     module: {
@@ -38,7 +38,23 @@ let config: webpack.Configuration = {
                 ],
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2,
+                            minimize: true,
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                               require( "autoprefixer")({
+                                    browsers: ['last 100 versions']
+                               })
+                            ]
+                        }
+                    },
                     'sass-loader'
                 ]
             },
@@ -65,7 +81,7 @@ let config: webpack.Configuration = {
         // new NpmInstallWebpackPlugin({
         //     dev: true,
         // })
-    ]
+    ],
 }
 
 export {config};

@@ -1,9 +1,0 @@
-.clear-float:after {
-  content: "";
-  width: 0;
-  height: 0;
-  display: block;
-  clear: both; }
-
-
-/*# sourceMappingURL=index.css.map*/

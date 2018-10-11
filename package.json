@@ -1,35 +1,45 @@
 {
-  "name": "webpage",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "stdev": "webpack --config webpack.config.ts",
-    "stwatch": "npm run stdev --watch"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/jquery": "^3.3.14",
-    "@types/mini-css-extract-plugin": "^0.2.0",
-    "@types/node": "^10.11.6",
-    "@types/uglifyjs-webpack-plugin": "^1.1.0",
-    "@types/webpack": "^4.4.16",
-    "css-loader": "^1.0.0",
-    "mini-css-extract-plugin": "^0.4.3",
-    "node-sass": "^4.9.3",
-    "npm-install-webpack-plugin": "^4.0.5",
-    "sass-loader": "^7.1.0",
-    "ts-loader": "^5.2.1",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.1.2",
-    "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
-  },
-  "dependencies": {
-    "jquery": "^3.3.1"
-  }
+    "name": "webpage",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "stdev": "webpack --config webpack.config.ts",
+        "stwatch": "webpack --config webpack.config.ts --watch"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "autoprefixer": "^9.1.5",
+        "@types/jquery": "^3.3.14",
+        "@types/mini-css-extract-plugin": "^0.2.0",
+        "@types/node": "^10.11.6",
+        "@types/uglifyjs-webpack-plugin": "^1.1.0",
+        "@types/webpack": "^4.4.16",
+        "css-loader": "^1.0.0",
+        "mini-css-extract-plugin": "^0.4.3",
+        "node-sass": "^4.9.3",
+        "npm-install-webpack-plugin": "^4.0.5",
+        "postcss-load-config": "^2.0.0",
+        "postcss-loader": "^3.0.0",
+        "postcss-plugin": "^1.0.0",
+        "postcss-scss": "^2.0.0",
+        "sass-loader": "^7.1.0",
+        "sugarss": "^2.0.0",
+        "ts-loader": "^5.2.1",
+        "ts-node": "^7.0.1",
+        "typescript": "^3.1.2",
+        "uglifyjs-webpack-plugin": "^2.0.1",
+        "webpack": "^4.20.2",
+        "webpack-cli": "^3.1.2"
+    },
+    "dependencies": {
+        "jquery": "^3.3.1"
+    },
+    "browserslist": [
+        "> 1%",
+        "not dead"
+    ]
 }

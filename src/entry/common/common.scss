@@ -1,0 +1,256 @@
+//函数及变量==>
+//变量===>
+$textColor: #a7a9b7;
+//变量<===
+
+//函数==》
+@mixin setHeight($height, $radius: false) {
+    height: $height;
+    line-height: $height;
+    @if $radius {
+        border-radius: $height / 2;
+    }
+}
+
+@mixin square($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin circle($size) {
+    @include square($size);
+    border-radius: 100%;
+}
+
+@mixin loadImg($src, $size: 100% 100%, $pos: 0 0) {
+    background-image: url("#{$src}");
+    background-size: #{$size};
+    background-position: #{$pos};
+}
+//函数<==
+//函数及变量<==
+//遍历生成==>
+$aligns: center, left, right;
+
+@each $align in $aligns {
+    .text-#{$align} {
+        text-align: #{$align};
+    }
+}
+
+$blocks: block, inline-block, inline, flex, table, none, table-cell;
+
+@each $b in $blocks {
+    .d-#{$b} {
+        display: $b;
+    }
+} 
+//遍历生成<==
+//通用样式==>
+:root{
+    font-size: 20px;
+}
+
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+
+.fl{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
+.clearfix{
+    &::after{
+        content: "";
+        height: 0;
+        clear: both;
+        display: block;
+    }
+}
+
+.pad-row{
+    padding: 0.25rem 0;
+    @extend .clearfix;
+}
+
+
+.main{
+    width: 1213px;
+    margin:0 auto;
+    @extend .clearfix;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a.d-block,
+a.d-inline-block{
+    width: 100%;
+    height: 100%;
+}
+body{
+    min-width: 1220px;
+    font-family: Arial, 'adobe黑体', 'Microsoft Yahei';
+}
+ul,
+ol{
+    list-style: none;
+}
+ul.list-in-line,
+ol.list-in-line{
+    &>li{
+        display: inline-block;
+    }
+}
+
+dl.list-in-line{
+    &>dd,
+    &>dt{
+        display: inline-block;
+    }
+}
+
+ul.list-horizontal,
+ol.list-horizontal{
+    @extend .clearfix;
+    &>li{
+        float: left;
+    }
+}
+
+dl.list-horizontal{
+    @extend .clearfix;
+    &>dt,
+    &>dd{
+        float: left;
+    }
+}
+small{
+    font-size: 0.6rem;
+}
+
+$headerHeight: 5.5rem;
+header{
+    height: $headerHeight;
+    line-height: $headerHeight;
+    .header-logo{
+        height: $headerHeight;
+    }
+    nav{
+        li{
+            padding:0 1.25rem;
+             a{
+                position: relative;
+                &:after{
+                    content: "";
+                    width: 0;
+                    height: 4px;
+                    position: absolute;
+                    bottom: 2px;
+                    left: 0;
+                    z-index: 1;
+                    background-color: #ff9d43;
+                    transition: 1s all ease;
+                }
+            }
+            &.active,
+            &:hover{
+               a::after{
+                   width: 100%;
+                
+               }
+            }
+        }
+    }
+}
+
+nav{
+    font-size: 0.9rem;
+    li{
+        &>a{
+            width: 100%;
+            height: 100%;
+            display: block; 
+        }
+    }
+}
+
+
+
+
+.st-btn{
+    @include setHeight(2rem);   
+    min-width: 6rem;
+    padding: 0 1.5rem;
+    display: inline-block;
+    background-color: transparent;
+    font-size: 0.8rem;   
+    text-align: center;
+    white-space: nowrap;
+    &.st-btn-colorful{
+        border-radius: 1rem;
+        background-image: linear-gradient(to right, #fe3477, #ffb531);
+        color: white;
+    }
+    &.st-btn-blue{
+        background-color: #494cf8;
+        color: white;
+    }
+}
+
+
+footer{
+    @include loadImg("/src/common/img/footer-bg.jpg");
+    .top-part{
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: center;       
+        .part{
+            flex-grow: 1;
+            &.big-part{
+                flex-grow: 2;
+                dt{
+                    @include square(1.5rem);
+                    @include loadImg('/src/common/img/icon-sprite.png',auto, 0 0);
+                }
+            }
+            dl{
+                line-height: 2;
+                dt{
+                    font-size: 0.9rem;
+                    color: white;
+                }
+                dd{
+                    font-size: 0.8rem;                   
+                    color: #d9d6cf;
+                }
+            }
+        }
+    }
+    .copy-declaration{        
+        background-color: #222629;
+        font-size: 0.7rem;
+        line-height: 3rem;
+        color: #45474f;
+        .text-light{
+            color: #9093a0;
+        }
+    }
+    .logo{
+        width: 14.5rem;
+        height: 4rem;
+        @include loadImg('/src/common/img/icon-sprite.png',auto, 0 0);
+    }
+}
