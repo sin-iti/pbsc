@@ -1,0 +1,40 @@
+@import "../common/common.scss";
+
+#page-title{
+    @include loadImg('/src/service/img/service.jpg');
+}
+
+.main-section{
+    padding: 3rem 0;
+    background-color: $greyBg;
+    section.main{
+        padding: 3rem 3.5rem;
+        border-bottom: 2px solid #ff9e40;
+        margin-bottom: 3rem;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        h3{
+            font-size: 1rem;
+        }
+        .text-part{
+            width: 48%;
+            font-size: 0.8rem;
+            line-height: 1.5rem;
+            .text-body{
+                padding: 1rem 0;
+                color: $textColor;
+            }
+        }
+        &:nth-child(even) {
+            .text-part{
+                order: 2;
+            }
+        }
+    }
+}

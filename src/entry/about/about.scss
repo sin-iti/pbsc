@@ -1,0 +1,193 @@
+@import "../common/common.scss";
+$pageImg: "/src/about/img";
+
+#page-title {
+    @include loadImg("/src/about/img/banner.jpg");
+}
+
+
+.main-content{
+    padding: 1.5rem 0;
+    position: relative;
+
+
+    section{
+        margin-bottom: 2rem;
+
+        &:last-child{
+            margin-bottom: 0;
+        }
+
+        .txt-pic-section{
+            height: 21.5rem;
+            background-color: #f6f7fa;
+            @extend .clearfix;
+
+            .pic-part,
+            .txt-part{
+                float: left;
+            }
+
+            .pic-part{
+                width: 50%;
+                height: 100%;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .txt-part{
+                width: 50%;
+                height: 100%;
+                padding: 2.5rem 0.75rem;
+                @include loadImg("#{$pageImg}/txt-part-bg.jpg");
+
+                h3{
+                    width: fit-content;
+                    padding-bottom: 1.25rem;
+                    border-bottom: 2px solid #f9ce1d;
+                    margin-bottom: 3rem;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                }
+
+                p{
+                    font-size: 0.7rem;
+                    line-height: 1.75rem;
+                    color: #4a4c52;
+                }
+            }
+        }
+    }
+
+    .card{
+        width: 18.5rem;
+        height: (450rem / 20);
+        border: 1px solid #e1e6f0;
+        border-radius: (6rem / 20);
+        position: relative;
+
+        .card-header{
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            transform: translate(0, -50%);
+            background-color: white;
+        }
+
+        .card-body{
+            padding: 1.75rem 0.75rem;
+
+            figure{
+                
+                img{
+                    width: 100%;
+                    height: (235rem / 20);
+                }
+
+                figcaption{
+                    padding-top: 2rem;
+                    font-size: 0.7rem;
+                    color: #6b798e;
+                }
+            }
+        }
+    }
+
+    .cards{
+        @extend .clearfix;
+
+        .card{
+            margin-right:  calc((100% - 55.5rem) / 2);
+            float: left;
+
+            &:nth-child(3n){
+                margin-right: 0;
+            }
+        }
+    }
+
+
+    .block{
+        width: 29.7rem;
+        height: 8rem;
+        padding: 1.25rem 1.5rem;
+
+        .block-content{
+            width: 17rem;
+            height: 5rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 0.2rem;
+
+            h4{
+                margin-bottom: 0.5rem;
+                font-size: 0.8rem;
+                color: #3e3a39;
+            }
+
+            p{
+                font-size: 0.7rem;
+                color: #4a4c52;
+            }
+        }
+
+        &.fl{
+            @include loadImg('#{$pageImg}/block-bg-01.jpg');
+        }
+        
+        &.fr{
+            @include loadImg('#{$pageImg}/block-bg-02.jpg');
+        }
+    }
+
+
+    .value-section{
+
+        h3.section-title{
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: bolder;
+            text-align: center;
+        }
+
+        .value{
+
+            h4{
+                
+                .icon-value{
+                    @include square(60px);
+                    display: inline-block;
+                    vertical-align: middle;
+                    @include loadImg('/src/common/img/icon-sprite.png', auto, -18px -184px);
+                }
+            }
+
+            .detail{
+                p{
+                    font-size: 0.7rem;
+                    line-height: 1.5rem;
+                    color: #4a4c52;
+                }
+            }
+        }
+
+        .values{
+            @extend .clearfix;
+
+            .value{
+                width:  28.5rem;
+                height: 10rem;
+                float: left;
+                margin-right: calc(100% - 57rem);
+
+
+                &:nth-child(even) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

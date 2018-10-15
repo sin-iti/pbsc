@@ -1,6 +1,7 @@
 //函数及变量==>
 //变量===>
 $textColor: #a7a9b7;
+$greyBg: #f4f4f4;
 //变量<===
 
 //函数==》
@@ -55,6 +56,7 @@ $blocks: block, inline-block, inline, flex, table, none, table-cell;
     padding: 0;
     border: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 
@@ -85,11 +87,17 @@ $blocks: block, inline-block, inline, flex, table, none, table-cell;
     width: 1213px;
     margin:0 auto;
     @extend .clearfix;
+
 }
+
 
 a{
     text-decoration: none;
     color: inherit;
+
+    &:hover{
+        text-decoration: none;
+    }
 }
 a.d-block,
 a.d-inline-block{
@@ -99,6 +107,7 @@ a.d-inline-block{
 body{
     min-width: 1220px;
     font-family: Arial, 'adobe黑体', 'Microsoft Yahei';
+
 }
 ul,
 ol{
@@ -145,6 +154,9 @@ header{
         height: $headerHeight;
     }
     nav{
+        ul{
+            margin-bottom: 0;
+        }
         li{
             padding:0 1.25rem;
              a{
@@ -182,9 +194,15 @@ nav{
         }
     }
 }
+hr{
+    width: 100%;
+    height: 1px;
+    background-color: #e7e7e7;
+}
 
-
-
+.p-relative{
+    position: relative!important;
+}
 
 .st-btn{
     @include setHeight(2rem);   
@@ -195,6 +213,7 @@ nav{
     font-size: 0.8rem;   
     text-align: center;
     white-space: nowrap;
+    box-sizing: border-box;
     &.st-btn-colorful{
         border-radius: 1rem;
         background-image: linear-gradient(to right, #fe3477, #ffb531);
@@ -212,28 +231,42 @@ footer{
     .top-part{
         padding-top: 3rem;
         padding-bottom: 2rem;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        justify-content: center;       
+       @extend .clearfix;
+       
+       
         .part{
-            flex-grow: 1;
+            width: 16.530%;
+            float: left;
+
             &.big-part{
-                flex-grow: 2;
-                dt{
-                    @include square(1.5rem);
+                width: 50.4%;
+
+                dl{
+                    padding: 10px;
+                }
+                .icon-tel,
+                .icon-mail{
+                    @include square(30px);
+                    display: inline-block;
                     @include loadImg('/src/common/img/icon-sprite.png',auto, 0 0);
+                    vertical-align: middle;
+                }
+                .icon-tel{
+                    background-position: -20px -120px;
+                }
+                .icon-mail{
+                    background-position: -70px -120px;
                 }
             }
             dl{
-                line-height: 2;
                 dt{
                     font-size: 0.9rem;
+                    line-height: 1.8rem;
                     color: white;
                 }
                 dd{
-                    font-size: 0.8rem;                   
+                    font-size: 0.8rem; 
+                    line-height: 1.8rem;             
                     color: #d9d6cf;
                 }
             }
@@ -252,5 +285,34 @@ footer{
         width: 14.5rem;
         height: 4rem;
         @include loadImg('/src/common/img/icon-sprite.png',auto, 0 0);
+    }
+}
+
+
+#page-title{
+    width: 100%;
+    height: 34.167vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    h2{
+        font-size: 3.6rem;
+        font-family: '黑体';
+        letter-spacing: 1.5rem;
+    }
+}
+
+.mask-forIE{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    background-color: white;
+    .bigger-text{
+        font-size: 72px;
     }
 }

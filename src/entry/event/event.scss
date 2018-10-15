@@ -1,0 +1,96 @@
+@import "../common/common.scss";
+#page-title {
+    @include loadImg("/src/event/img/banner.jpg");
+}
+
+.main-content {
+    padding: 3rem 0;
+    background-color: $greyBg;
+    $hotColor: #ff9e40;
+
+    .section-navs {
+        hr {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+            z-index: 0;
+        }
+        .navs {
+            position: relative;
+            z-index: 1;
+            &>ul>li {
+                .st-btn {
+                    border: 2px solid #e7e7e7;
+                    border-radius: 2rem;
+                    background-color: $greyBg;
+                    color: $textColor;
+                }
+                &.active {
+                    .st-btn {
+                        border-color: #494cf8;
+                        color: #494cf8;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .list-section {
+        @extend .clearfix;
+        padding-top: 1.5rem;
+        
+        .pic-part {
+            width: 28.5rem;
+            float: left;
+            position: relative;
+
+
+            img {
+                width: 28.5rem;
+                height: 17.7rem;
+            }
+
+            .img-title{
+                min-width: 21rem;
+                max-width: 99%;
+                padding: 1.8rem 2rem;
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                font-size: 1rem;
+                font-weight: bolder;
+                text-align: center;
+                color: $hotColor;
+            }
+        }
+
+
+        .title-part {
+            width: calc(100% - 28.5rem);
+            padding-left: 1rem;
+            float: left;
+            
+            ul {
+                list-style: disc inside;
+                
+                li{
+                    padding: 1rem 0;
+                    border-bottom: 1px solid #e4e4e4;
+                    overflow: hidden;
+                    font-size: 0.8rem;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+
+                    &.hot{
+                        color: $hotColor;
+                        font-weight: bolder;
+                    }
+                }
+            }
+        }
+    }
+}

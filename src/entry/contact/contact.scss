@@ -1,0 +1,43 @@
+@import "../common/common.scss";
+
+$pageImg: '/src/contact/img';
+
+#page-title{
+    @include loadImg('#{$pageImg}/banner.jpg');
+}
+
+
+.main-content{
+    padding: 3.5rem 0;
+}
+
+.info-section{
+
+    .main-info{
+        margin-bottom: 4rem;
+
+        h3{
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        h4{
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #3e3a39;
+        }
+
+        .detail{
+            font-size: 0.8rem;
+            color: #3e3a39;
+
+            dl{
+                line-height: 1.5rem;
+            }
+        }
+    }
+
+    address{
+        font-style: normal;
+    }
+}
