@@ -51,7 +51,7 @@
   float: right; }
 
 .clearfix::after, .pad-row::after, .main::after, ul.list-horizontal::after,
-ol.list-horizontal::after, dl.list-horizontal::after, footer .top-part::after, .main-content .list-section::after {
+ol.list-horizontal::after, dl.list-horizontal::after, footer .top-part::after, .main-content .list-section::after, .main-content .list-section .title-part ul li a::after {
   content: "";
   height: 0;
   clear: both;
@@ -61,7 +61,7 @@ ol.list-horizontal::after, dl.list-horizontal::after, footer .top-part::after, .
   padding: 0.25rem 0; }
 
 .main {
-  width: 1213px;
+  width: 60.65rem;
   margin: 0 auto; }
 
 a {
@@ -271,6 +271,14 @@ footer {
   .mask-forIE .bigger-text {
     font-size: 72px; }
 
+[data-type="copy-text"][data-copyed="yes"] {
+  position: relative; }
+  [data-type="copy-text"][data-copyed="yes"]:after {
+    content: '(\5DF2\590D\5236)';
+    padding: 2px 4px;
+    font-size: 12px;
+    color: white; }
+
 #page-title {
   background-image: url("/src/event/img/banner.jpg");
   -webkit-background-size: 100% 100%;
@@ -306,7 +314,10 @@ footer {
       border-color: #494cf8;
       color: #494cf8; }
   .main-content .list-section {
-    padding-top: 1.5rem; }
+    padding-top: 1.5rem;
+    display: none; }
+    .main-content .list-section:first-child {
+      display: block; }
     .main-content .list-section .pic-part {
       width: 28.5rem;
       float: left;
@@ -337,19 +348,42 @@ footer {
       width: calc(100% - 28.5rem);
       padding-left: 1rem;
       float: left; }
-      .main-content .list-section .title-part ul {
-        list-style: disc inside; }
-        .main-content .list-section .title-part ul li {
-          padding: 1rem 0;
-          border-bottom: 1px solid #e4e4e4;
+      .main-content .list-section .title-part ul li {
+        padding: 1rem 0;
+        border-bottom: 1px solid #e4e4e4;
+        overflow: hidden;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis; }
+        .main-content .list-section .title-part ul li a {
+          display: block; }
+          .main-content .list-section .title-part ul li a .order,
+          .main-content .list-section .title-part ul li a .title,
+          .main-content .list-section .title-part ul li a .date {
+            float: left;
+            line-height: 1.5rem; }
+          .main-content .list-section .title-part ul li a .order {
+            width: 2rem; }
+          .main-content .list-section .title-part ul li a .date {
+            width: 3.7rem; }
+          .main-content .list-section .title-part ul li a .title {
+            width: -webkit-calc(100% - 5.7rem);
+            width: -moz-calc(100% - 5.7rem);
+            width: calc(100% - 5.7rem); }
+        .main-content .list-section .title-part ul li.hot {
+          color: #ff9e40;
+          font-weight: bolder; }
+        .main-content .list-section .title-part ul li .title {
           overflow: hidden;
-          font-size: 0.8rem;
-          white-space: nowrap;
           -o-text-overflow: ellipsis;
              text-overflow: ellipsis; }
-          .main-content .list-section .title-part ul li.hot {
-            color: #ff9e40;
-            font-weight: bolder; }
+        .main-content .list-section .title-part ul li .date {
+          text-align: right;
+          font-size: 0.6rem; }
+        .main-content .list-section .title-part ul li .order {
+          width: 4rem;
+          text-align: right; }
 
 
 /*# sourceMappingURL=event.css.map*/

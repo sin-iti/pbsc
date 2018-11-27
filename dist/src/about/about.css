@@ -61,7 +61,7 @@ ol.list-horizontal::after, dl.list-horizontal::after, footer .top-part::after, .
   padding: 0.25rem 0; }
 
 .main {
-  width: 1213px;
+  width: 60.65rem;
   margin: 0 auto; }
 
 a {
@@ -271,6 +271,14 @@ footer {
   .mask-forIE .bigger-text {
     font-size: 72px; }
 
+[data-type="copy-text"][data-copyed="yes"] {
+  position: relative; }
+  [data-type="copy-text"][data-copyed="yes"]:after {
+    content: '(\5DF2\590D\5236)';
+    padding: 2px 4px;
+    font-size: 12px;
+    color: white; }
+
 #page-title {
   background-image: url("/src/about/img/banner.jpg");
   -webkit-background-size: 100% 100%;
@@ -409,12 +417,13 @@ footer {
     line-height: 1.5rem;
     color: #4a4c52; }
   .main-content .value-section .values .value {
-    width: 28.5rem;
-    height: 10rem;
-    float: left;
-    margin-right: -webkit-calc(100% - 57rem);
-    margin-right: -moz-calc(100% - 57rem);
-    margin-right: calc(100% - 57rem); }
+    width: -webkit-calc(100% / 3);
+    width: -moz-calc(100% / 3);
+    width: calc(100% / 3);
+    height: 4rem;
+    float: left; }
+    .main-content .value-section .values .value h4 {
+      text-align: center; }
     .main-content .value-section .values .value:nth-child(even) {
       margin-right: 0; }
 

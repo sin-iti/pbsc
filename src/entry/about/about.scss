@@ -178,12 +178,16 @@ $pageImg: "/src/about/img";
             @extend .clearfix;
 
             .value{
-                width:  28.5rem;
-                height: 10rem;
+                // width:  28.5rem;
+                // width:  20.2rem;
+                width: calc(100% / 3);
+                // height: 10rem;
+                height: 4rem;
                 float: left;
-                margin-right: calc(100% - 57rem);
-
-
+                // margin-right: calc(100% - 57rem);
+                h4{
+                    text-align: center;
+                }
                 &:nth-child(even) {
                     margin-right: 0;
                 }

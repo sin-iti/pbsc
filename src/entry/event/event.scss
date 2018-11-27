@@ -41,6 +41,12 @@
         @extend .clearfix;
         padding-top: 1.5rem;
         
+        display: none;
+        
+        &:first-child{
+            display: block;
+        }
+
         .pic-part {
             width: 28.5rem;
             float: left;
@@ -74,9 +80,7 @@
             padding-left: 1rem;
             float: left;
             
-            ul {
-                list-style: disc inside;
-                
+            ul {                
                 li{
                     padding: 1rem 0;
                     border-bottom: 1px solid #e4e4e4;
@@ -85,9 +89,52 @@
                     white-space: nowrap;
                     text-overflow: ellipsis;
 
+                    a{
+                        display: block;
+                        @extend .clearfix;
+                        
+                        .order,
+                        .title,
+                        .date{
+                            float: left;
+                            line-height: 1.5rem;
+                        }
+                        $orderWidth: 2rem;
+                        $dateWidth: 3.7rem;
+                        .order{
+                            width: $orderWidth;
+
+                        }
+
+                        .date{
+                            width: $dateWidth;
+                        }
+
+                        $tookWidth: $orderWidth + $dateWidth;
+
+                        .title{
+                            width: calc(100% - #{$tookWidth});
+                        }
+                    }
+                    
                     &.hot{
                         color: $hotColor;
                         font-weight: bolder;
+                    }
+
+                    .title{
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .date{
+                        text-align: right;
+                        font-size: 0.6rem;
+                    }
+
+                    .order{
+                        width: 4rem;
+                        text-align: right;
                     }
                 }
             }

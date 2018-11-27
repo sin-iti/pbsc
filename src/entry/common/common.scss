@@ -84,7 +84,7 @@ $blocks: block, inline-block, inline, flex, table, none, table-cell;
 
 
 .main{
-    width: 1213px;
+    width: 60.65rem;
     margin:0 auto;
     @extend .clearfix;
 
@@ -314,5 +314,19 @@ footer{
     background-color: white;
     .bigger-text{
         font-size: 72px;
+    }
+}
+
+[data-type="copy-text"]{
+
+    &[data-copyed="yes"] {
+        position: relative;
+        &:after{
+            content: '(已复制)';
+            padding: 2px 4px;
+            // background-color: #494cf8;
+            font-size: 12px;
+            color: white;
+        }
     }
 }
