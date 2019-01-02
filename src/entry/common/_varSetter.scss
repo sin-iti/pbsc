@@ -1,0 +1,56 @@
+//函数及变量==>
+//变量===>
+$textColor: #a7a9b7;
+$greyBg: #f4f4f4;
+//变量<===
+//函数==》
+@mixin setHeight($height, $radius: false) {
+    height: $height;
+    line-height: $height;
+    @if $radius {
+        border-radius: $height / 2;
+    }
+}
+
+@mixin square($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin circle($size) {
+    @include square($size);
+    border-radius: 100%;
+}
+
+@mixin loadImg($src, $size: 100% 100%, $pos: 0 0) {
+    background-image: url("#{$src}");
+    background-size: #{$size};
+    background-position: #{$pos};
+}
+
+//函数<==
+//函数及变量<==
+//遍历生成==>
+$aligns: center,
+left,
+right;
+@each $align in $aligns {
+    .text-#{$align} {
+        text-align: #{$align};
+    }
+}
+
+$blocks: block,
+inline-block,
+inline,
+flex,
+table,
+none,
+table-cell;
+@each $b in $blocks {
+    .d-#{$b} {
+        display: $b;
+    }
+}
+
+//遍历生成<==

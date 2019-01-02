@@ -1,0 +1,308 @@
+@import "../common/_varSetter";
+@function pxToVw($px, $base: 1920) {
+    $list: ($px / $base) * 100 + 'vw';
+    @return #{$list};
+}
+
+@function pxToVh($px, $base: 1080) {
+    $height: ($px / $base) * 100 + 'vh';
+    @return #{$height};
+}
+
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 0;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    @include loadImg('/src/performance/img/bg.jpg');
+    header {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .theme-title {
+            height: pxToVw(128);
+            line-height: pxToVw(128);
+            @include loadImg('/src/performance/img/theme-title-bg.png');
+            background-size: auto 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            font-size: pxToVw(72);
+            text-align: center;
+            color: white;
+        }
+    }
+    .body {
+        padding: 0 40px;
+        padding-bottom: 60px;
+        &:after {
+            content: "";
+            height: 0;
+            display: block;
+            clear: both;
+        }
+        .show-part {
+            min-height: 1px;
+            padding: 0 20px;
+            float: left;
+        }
+        .pc-part {
+            width: calc(100% - 409px); //取1px作为缓冲
+        }
+        .tel-part {
+            width: 400px;
+        }
+    }
+}
+
+$showPartTitleHeight: pxToVw(60);
+.show-part {
+    height: 100%;
+    .title {
+        @include setHeight($showPartTitleHeight);
+        @include loadImg('/src/performance/img/title-bg.png');
+        background-position: center center;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        font-size: pxToVw(30);
+        text-align: center;
+        color: white;
+        margin-bottom: 20px;
+    }
+}
+
+.pc-part {
+    $footerBtnHeight: 70px;
+    iframe {
+        width: 100%;
+        height: calc(100% - #{$showPartTitleHeight} - #{$footerBtnHeight});
+        border: 4px solid white;
+        border-radius: 8px;
+        body {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #764500;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.btn {
+    outline: 0;
+    cursor: pointer;
+    font-size: 18px;
+    &:hover,
+    &:focus,
+    &:active {
+        outline: 0;
+    }
+}
+
+.switch-func-btn {
+    width: 160px;
+    height: 60px;
+    @include loadImg('/src/performance/img/btn-bg.png');
+    background-size: 100% 116%;
+    background-position: center center;
+    background-color: transparent;
+}
+
+.row {
+    &:after {
+        content: "";
+        height: 0;
+        display: block;
+        clear: both;
+    }
+    .fl {
+        float: left;
+    }
+    .fr {
+        float: right;
+    }
+}
+
+.tel-part {
+    .btn-group {
+        width: 180px;
+        border: 1px solid white;
+        border-radius: 4px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        &:after {
+            content: "";
+            height: 0;
+            display: block;
+            clear: both;
+        }
+        button {
+            width: 50%;
+            height: 36px;
+            display: block;
+            float: left;
+            background-color: transparent;
+            font-size: 14px;
+            text-align: center;
+            &.active {
+                background-color: white;
+                color: #ff513c;
+            }
+        }
+    }
+    .qrcode-block {
+        margin-bottom: 2vh;
+        img {
+            @include square(pxToVh(160));
+            margin: 0 auto;
+            display: block;
+        }
+        figcaption {
+            padding: 5px 0;
+            font-size: 14px;
+            text-align: center;
+            color: white;
+        }
+    }
+    .tel-img {
+        text-align: center;
+        img {
+            height: pxToVh(300);
+        }
+    }
+}
+
+@media screen and (min-height: 800px) {
+    .tel-part {
+        .tel-img {
+            img {
+                height: pxToVh(400);
+            }
+        }
+    }
+}
+
+@keyframes showMask {
+    from {
+        transform: translate(-100%, -100%) scale(0);
+    }
+    to {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes hideMask {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(100%, 100%) scale(0);
+    }
+}
+
+.mask {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.45);
+    animation: .45s showMask ease-in-out;
+    &[data-action="close"] {
+        animation: .45s hideMask ease-in-out;
+    }
+    .pop {
+        max-width: 60vw;
+        min-width: 636px;
+        max-width: 1200px;
+        max-height: 80vh;
+        min-height: 466px;
+        border-radius: 6px;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 101;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        .pop-header,
+        .pop-body {
+            padding: 0 20px;
+        }
+        .pop-header {
+            @include setHeight(50px);
+            @include loadImg('/src/performance/img/pop-title-bg.png');
+            color: white;
+            .close {
+                @include square(25px);
+                position: absolute;
+                top: 12px;
+                right: 30px;
+                @include loadImg('/src/performance/img/sprites.png');
+                background-size: auto;
+                background-position: -12px -75px;
+                background-repeat: no-repeat;
+                background-color: transparent;
+            }
+        }
+        .pop-body {
+            max-height: calc(80vh - 51px);
+            padding-bottom: 20px;
+            overflow-y: auto;
+        }
+    }
+}
+
+.faq-list {
+    li {
+        padding: 10px 0;
+        &::after {
+            content: "";
+            height: 0;
+            display: block;
+            clear: both;
+        }
+        .icon,
+        .text {
+            float: left;
+        }
+        .icon {
+            width: 34px;
+            height: 30px;
+            @include loadImg('/src/performance/img/sprites.png');
+            background-size: auto;
+            background-position: -7px -15px;
+            background-repeat: no-repeat; // background-color: transparent;
+            background-color: transparent;
+        }
+        .text {
+            width: calc(100% - 35px);
+            padding-left: 16px;
+            .title {
+                line-height: 30px;
+            }
+            .content {
+                font-size: 14px;
+                color: #83868e;
+            }
+        }
+    }
+}

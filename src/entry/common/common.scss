@@ -1,75 +1,26 @@
-//函数及变量==>
-//变量===>
-$textColor: #a7a9b7;
-$greyBg: #f4f4f4;
-//变量<===
-
-//函数==》
-@mixin setHeight($height, $radius: false) {
-    height: $height;
-    line-height: $height;
-    @if $radius {
-        border-radius: $height / 2;
-    }
-}
-
-@mixin square($size) {
-    width: $size;
-    height: $size;
-}
-
-@mixin circle($size) {
-    @include square($size);
-    border-radius: 100%;
-}
-
-@mixin loadImg($src, $size: 100% 100%, $pos: 0 0) {
-    background-image: url("#{$src}");
-    background-size: #{$size};
-    background-position: #{$pos};
-}
-//函数<==
-//函数及变量<==
-//遍历生成==>
-$aligns: center, left, right;
-
-@each $align in $aligns {
-    .text-#{$align} {
-        text-align: #{$align};
-    }
-}
-
-$blocks: block, inline-block, inline, flex, table, none, table-cell;
-
-@each $b in $blocks {
-    .d-#{$b} {
-        display: $b;
-    }
-} 
-//遍历生成<==
+@import "./_varSetter.scss";
 //通用样式==>
-:root{
+:root {
     font-size: 20px;
 }
 
-*{
+* {
     padding: 0;
     border: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-
-.fl{
+.fl {
     float: left;
 }
 
-.fr{
+.fr {
     float: right;
 }
 
-.clearfix{
-    &::after{
+.clearfix {
+    &::after {
         content: "";
         height: 0;
         clear: both;
@@ -77,91 +28,91 @@ $blocks: block, inline-block, inline, flex, table, none, table-cell;
     }
 }
 
-.pad-row{
+.pad-row {
     padding: 0.25rem 0;
     @extend .clearfix;
 }
 
-
-.main{
+.main {
     width: 60.65rem;
-    margin:0 auto;
+    margin: 0 auto;
     @extend .clearfix;
-
 }
 
-
-a{
+a {
     text-decoration: none;
     color: inherit;
-
-    &:hover{
+    &:hover {
         text-decoration: none;
     }
 }
+
 a.d-block,
-a.d-inline-block{
+a.d-inline-block {
     width: 100%;
     height: 100%;
 }
-body{
+
+body {
     min-width: 1220px;
     font-family: Arial, 'adobe黑体', 'Microsoft Yahei';
-
 }
+
 ul,
-ol{
+ol {
     list-style: none;
 }
+
 ul.list-in-line,
-ol.list-in-line{
-    &>li{
+ol.list-in-line {
+    &>li {
         display: inline-block;
     }
 }
 
-dl.list-in-line{
+dl.list-in-line {
     &>dd,
-    &>dt{
+    &>dt {
         display: inline-block;
     }
 }
 
 ul.list-horizontal,
-ol.list-horizontal{
+ol.list-horizontal {
     @extend .clearfix;
-    &>li{
+    &>li {
         float: left;
     }
 }
 
-dl.list-horizontal{
+dl.list-horizontal {
     @extend .clearfix;
     &>dt,
-    &>dd{
+    &>dd {
         float: left;
     }
 }
-small{
+
+small {
     font-size: 0.6rem;
 }
 
 $headerHeight: 5.5rem;
-header{
+header {
     height: $headerHeight;
     line-height: $headerHeight;
-    .header-logo{
+    .header-logo {
         height: $headerHeight;
     }
-    nav{
-        ul{
+    nav {
+        ul {
             margin-bottom: 0;
         }
-        li{
-            padding:0 1.25rem;
-             a{
+        li {
+            padding: 0 1.25rem;
+            a {
                 position: relative;
-                &:after{
+                &:after {
                     content: "";
                     width: 0;
                     height: 4px;
@@ -174,122 +125,116 @@ header{
                 }
             }
             &.active,
-            &:hover{
-               a::after{
-                   width: 100%;
-                
-               }
+            &:hover {
+                a::after {
+                    width: 100%;
+                }
             }
         }
     }
 }
 
-nav{
+nav {
     font-size: 0.9rem;
-    li{
-        &>a{
+    li {
+        &>a {
             width: 100%;
             height: 100%;
-            display: block; 
+            display: block;
         }
     }
 }
-hr{
+
+hr {
     width: 100%;
     height: 1px;
     background-color: #e7e7e7;
 }
 
-.p-relative{
-    position: relative!important;
+.p-relative {
+    position: relative !important;
 }
 
-.st-btn{
-    @include setHeight(2rem);   
+.st-btn {
+    @include setHeight(2rem);
     min-width: 6rem;
     padding: 0 1.5rem;
     display: inline-block;
     background-color: transparent;
-    font-size: 0.8rem;   
+    font-size: 0.8rem;
     text-align: center;
     white-space: nowrap;
     box-sizing: border-box;
-    &.st-btn-colorful{
+    &.st-btn-colorful {
         border-radius: 1rem;
         background-image: linear-gradient(to right, #fe3477, #ffb531);
         color: white;
     }
-    &.st-btn-blue{
+    &.st-btn-blue {
         background-color: #494cf8;
         color: white;
     }
 }
 
-
-footer{
+footer {
     @include loadImg("/src/common/img/footer-bg.jpg");
-    .top-part{
+    .top-part {
         padding-top: 3rem;
         padding-bottom: 2rem;
-       @extend .clearfix;
-       
-       
-        .part{
+        @extend .clearfix;
+        .part {
             width: 16.530%;
             float: left;
-
-            &.big-part{
+            &.big-part {
                 width: 50.4%;
-
-                dl{
+                dl {
                     padding: 10px;
                 }
                 .icon-tel,
-                .icon-mail{
+                .icon-mail {
                     @include square(30px);
                     display: inline-block;
-                    @include loadImg('/src/common/img/icon-sprite.png',auto, 0 0);
+                    @include loadImg('/src/common/img/icon-sprite.png', auto, 0 0);
                     vertical-align: middle;
                 }
-                .icon-tel{
+                .icon-tel {
                     background-position: -20px -120px;
                 }
-                .icon-mail{
+                .icon-mail {
                     background-position: -70px -120px;
                 }
             }
-            dl{
-                dt{
+            dl {
+                dt {
                     font-size: 0.9rem;
                     line-height: 1.8rem;
                     color: white;
                 }
-                dd{
-                    font-size: 0.8rem; 
-                    line-height: 1.8rem;             
+                dd {
+                    font-size: 0.8rem;
+                    line-height: 1.8rem;
                     color: #d9d6cf;
                 }
             }
         }
     }
-    .copy-declaration{        
+    .copy-declaration {
         background-color: #222629;
         font-size: 0.7rem;
         line-height: 3rem;
         color: #45474f;
-        .text-light{
+        .text-light {
             color: #9093a0;
         }
     }
-    .logo{
+    .logo {
         width: 14.5rem;
         height: 4rem;
-        @include loadImg('/src/common/img/icon-sprite.png',auto, 0 0);
+        @include loadImg('/src/common/img/icon-sprite.png', auto, 0 0);
     }
 }
 
-
-#page-title{
+#page-title {
     width: 100%;
     height: 34.167vh;
     display: flex;
@@ -297,14 +242,14 @@ footer{
     justify-content: center;
     align-items: center;
     color: white;
-    h2{
+    h2 {
         font-size: 3.6rem;
         font-family: '黑体';
         letter-spacing: 1.5rem;
     }
 }
 
-.mask-forIE{
+.mask-forIE {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -312,19 +257,17 @@ footer{
     left: 0;
     z-index: 999999;
     background-color: white;
-    .bigger-text{
+    .bigger-text {
         font-size: 72px;
     }
 }
 
-[data-type="copy-text"]{
-
+[data-type="copy-text"] {
     &[data-copyed="yes"] {
         position: relative;
-        &:after{
+        &:after {
             content: '(已复制)';
-            padding: 2px 4px;
-            // background-color: #494cf8;
+            padding: 2px 4px; // background-color: #494cf8;
             font-size: 12px;
             color: white;
         }
