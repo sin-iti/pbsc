@@ -1,4 +1,6 @@
-import { Wave } from "../../class/archEffets/Wave";
+import { Logo } from "../../class/archEffets/Logo";
 
-let wave = new Wave();
-wave.initOn(document.body).start().startAnime();
+let logo = new Logo();
+logo.initOn(document.body).start();
+logo.startAnime();
+

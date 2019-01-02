@@ -29,25 +29,28 @@ export class StThree extends StBaseThree {
         let img = document.body.querySelector(`img[data-src="${src}"]`) as HTMLImageElement;
         return img;
     }
-    public asyncLoadImg(src: string) {
+    public has = false;
+    public asyncLoadImg(src: string) {        
         return new Promise<HTMLImageElement>((resolve, reject) => {
             let img = this.getImgFromDom(src);
             if (img) {
                 resolve(img);
                 return;
-            }
-            img = new Image();
-            img.crossOrigin = 'anonymous';
-            img.setAttribute('data-src', src);
-            img.style.display = "none";
-            img.onload = () => {
-                document.body.appendChild(img);
-                resolve(img);
-            }
-            img.onerror = (err) => {
-                reject(err);
-            }
-            img.src = src;
+            } else {
+                img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.setAttribute('data-src', src);
+                img.style.display = "none";
+                img.onload = () => {
+                    this.has = true;
+                    document.body.appendChild(img);
+                    resolve(img);
+                }
+                img.onerror = (err) => {
+                    reject(err);
+                }
+                img.src = src;
+            }          
         });
     }
     protected getCanvasByAvatarImg(img: HTMLImageElement, size: number = 512): HTMLCanvasElement {
@@ -87,7 +90,8 @@ export class StThree extends StBaseThree {
 
     protected getStaticUrlOf(filename: string, isImg: boolean = true): string {
         if (isImg) {
-            filename = path.join('img', filename)
+            filename = path.join('img', filename);
+            console.log(filename);
         }
         return formatUrl({
             pathname: path.join(__static, filename),

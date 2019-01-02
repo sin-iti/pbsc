@@ -4,7 +4,8 @@ import { StCanvas } from "../StCanvas/StCanvas";
 // import { loopItems } from "../../../common/func/ArrayLike";
 import { Tween, update } from "@tweenjs/tween.js";
 import { format } from "url";
-declare const __static: string;
+// declare const __static: string;
+const __static = "/src/test/";
 export namespace Logo {
     export interface PrintedInfo {
         points: StCanvas.Point3d[];
@@ -17,11 +18,12 @@ export class Logo extends StThree {
     protected baseAvatarWidth = 12;
     protected logoScale = 1;
 
-    protected logoSrc = format({
-        slashes: true,
-        protocol: 'file',
-        pathname: `${__static}/img/logo1_01.png`,
-    });
+    protected logoSrc = `${__static}/img/logo1_01.png`;
+    // protected logoSrc = format({
+    //     slashes: true,
+    //     protocol: 'file',
+    //     pathname: `${__static}/img/logo1_01.png`,
+    // });
     protected points: StCanvas.Point3d[] = [];
     protected pointIndex: number = 0;
     protected stCanvas = new StCanvas();

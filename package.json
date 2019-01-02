@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "stdev": "webpack --config webpack.config.ts",
-        "stwatch": "webpack --config webpack.config.ts --watch"
+        "stwatch": "webpack --config webpack.config.ts --watch",
+        "lib": "webpack --config webpack.lib.ts"
     },
     "keywords": [],
     "author": "",

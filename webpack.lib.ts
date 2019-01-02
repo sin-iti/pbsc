@@ -2,7 +2,6 @@ import * as webpack from "webpack";
 import * as path from "path";
 import * as UglifyJsPlugin from "uglifyjs-webpack-plugin";
 import * as MiniCssExtractPlugin from "mini-css-extract-plugin";
-import * as NpmInstallWebpackPlugin from "npm-install-webpack-plugin";
 let uglifyjs = new UglifyJsPlugin({
     sourceMap: true,
     uglifyOptions: {
@@ -22,13 +21,17 @@ let config: webpack.Configuration = {
     mode: 'development',
     devtool: "source-map",
     entry: {
-
+        // "three": ["three"],
+        // "tween": ["@tweenjs/tween.js"],
+        "stats": ["stats.js"]
     },
     target: "web",
     output: {
         path: path.resolve(__dirname, "./dist/src"),
-        filename: '[name].js'
+        filename: '[name].js',
+        library: "[name]",
     },
+
     module: {
         rules: [
             {
@@ -78,16 +81,9 @@ let config: webpack.Configuration = {
     plugins: [
         uglifyjs,
         miniCss,
-        new webpack.DllReferencePlugin({
-            manifest: path.resolve(__dirname, "dist/lib/three-manifest.json"),
-            context: __dirname,
-        }),
-        new webpack.DllReferencePlugin({
-            manifest: path.resolve(__dirname, "dist/lib/tween-manifest.json"),
-            context: __dirname,
-        }),
-        new webpack.DllReferencePlugin({
-            manifest: path.resolve(__dirname, "dist/lib/stats-manifest.json"),
+        new webpack.DllPlugin({
+            name: '[name]',
+            path: path.join(__dirname, "dist/lib/[name]-manifest.json"),
             context: __dirname,
         }),
         // new NpmInstallWebpackPlugin({
@@ -96,4 +92,4 @@ let config: webpack.Configuration = {
     ],
 }
 
-export {config};
+export default config;
