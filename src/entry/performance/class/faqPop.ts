@@ -6,6 +6,7 @@ export namespace faqPop {
 
 export class FaqPop {
     public elm: HTMLElement;
+    protected _hasAnimeEvt: boolean;
     constructor() {
 
     }
@@ -62,17 +63,45 @@ export class FaqPop {
         let closeStatus = this.elm.getAttribute("data-action");
         this.elm.removeAttribute("data-action");
         if (closeStatus === "close") {
-            this.elm.parentNode.removeChild(this.elm);
+            this.whenClose();
         }
     }
+    protected whenClose() {
+        this.elm.parentNode.removeChild(this.elm);
+    }
     protected wantToClose() {
-        this.elm.setAttribute("data-action", "close");
+        if (this.hasAnimationEvt()) {
+            this.elm.setAttribute("data-action", "close");
+        } else {
+            this.whenClose();
+        }
+    }
+    protected hasAnimationEvt() {
+        if (typeof this._hasAnimeEvt === "undefined") {
+            let userAgent = navigator.userAgent;
+            let isIe = /Trident/i.test(userAgent);
+            if (isIe) {
+                let regExp = /MSIE\s*([\d]+)/;
+                let matchers = userAgent.match(regExp);
+                if (matchers) {
+                    let bigV = parseInt(matchers[1]);
+                    if (bigV < 10) {
+                        this._hasAnimeEvt = false;
+                        return this._hasAnimeEvt;
+                    }
+                }
+            }
+            this._hasAnimeEvt = true;
+        }
+        return this._hasAnimeEvt;
     }
     public show() {
+
         if (!this.elm) {
             this.elm = this.buildPop();
             this.listenEvents(this.elm);
         }
+        this.hasAnimationEvt();
         document.body.appendChild(this.elm);
     }
 }

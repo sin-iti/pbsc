@@ -1,11 +1,16 @@
+export namespace StUserAgent {
+    export type Brand = "IE" | "Chrome" | "Safari" | "Firefox";
+}
+
+
 export class StUserAgent {
     readonly userAgent = navigator.userAgent;
-    readonly IEVersion: string;
     readonly isIE: boolean;
     readonly isChrome: boolean;
     readonly isFirefox: boolean;
     readonly isSafari: boolean;
-    readonly browserBrand;
+    readonly browserBrand: StUserAgent.Brand;
+    // readonly version
     constructor() {
         this.isIE = /Trident/i.test(this.userAgent);
         this.isChrome = /Chrome/i.test(this.userAgent);
