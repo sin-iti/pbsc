@@ -9,6 +9,18 @@
     @return #{$height};
 }
 
+.mask-forIE {
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    background-color: white;
+    font-size: 40px;
+}
+
 * {
     padding: 0;
     border: 0;
@@ -31,9 +43,11 @@ body {
             height: pxToVw(128);
             line-height: pxToVw(128);
             @include loadImg('/src/performance/img/theme-title-bg.png');
-            background-size: auto 100%;
-            background-position: center center;
-            background-repeat: no-repeat;
+            background: {
+                size: auto 100%;
+                position: center center;
+                repeat: no-repeat;
+            }
             font-size: pxToVw(72);
             text-align: center;
             color: white;
@@ -41,7 +55,7 @@ body {
     }
     .body {
         padding: 0 40px;
-        padding-bottom: 60px;
+        padding-bottom: pxToVh(40);
         &:after {
             content: "";
             height: 0;
