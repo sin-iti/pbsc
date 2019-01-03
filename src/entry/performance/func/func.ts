@@ -1,3 +1,5 @@
+import { StCls } from "../class/StCls";
+
 export function setBodyHeight() {
     let header = document.body.querySelector('.main header') as HTMLElement;
     let headerHeight = header.offsetHeight;
@@ -38,4 +40,15 @@ export function getCorrectEvt(evtName: "animation", status: "end" | "start" = "e
     }
     return evtCache[key];
 }
+
+export function loopItems<ItemType>(arrLike: { length: number, [index: number]: ItemType }, func: (item: ItemType, index: number) => void | false) {
+    let len = arrLike.length;
+    for (let i = 0; i < len; i++) {
+        let goOn = func(arrLike[i], i);
+        if (goOn === false) {
+            break;
+        }
+    }
+}
+
 

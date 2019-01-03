@@ -64,11 +64,11 @@ body {
           background-size: 100% 100%;
   background-position: 0 0; }
   .main header {
-    padding-top: 20px;
+    padding-top: 1.85185vh;
     padding-bottom: 20px; }
     .main header .theme-title {
-      height: 6.66667vw;
-      line-height: 6.66667vw;
+      height: 7.40741vh;
+      line-height: 7.40741vh;
       background-image: url("/src/performance/img/theme-title-bg.png");
       -webkit-background-size: 100% 100%;
          -moz-background-size: 100% 100%;
@@ -81,7 +81,7 @@ body {
               background-size: auto 100%;
       background-position: center center;
       background-repeat: no-repeat;
-      font-size: 3.75vw;
+      font-size: 4.25926vh;
       text-align: center;
       color: white; }
   .main .body {
@@ -97,17 +97,18 @@ body {
       padding: 0 20px;
       float: left; }
     .main .body .pc-part {
-      width: -webkit-calc(100% - 409px);
-      width: -moz-calc(100% - 409px);
-      width: calc(100% - 409px); }
+      width: -webkit-calc(100% - 18.75vw - 1px);
+      width: -moz-calc(100% - 18.75vw - 1px);
+      width: calc(100% - 18.75vw - 1px); }
     .main .body .tel-part {
-      width: 400px; }
+      width: 18.75vw; }
 
 .show-part {
   height: 100%; }
   .show-part .title {
-    height: 3.125vw;
-    line-height: 3.125vw;
+    height: 4.62963vh;
+    line-height: 4.62963vh;
+    margin-bottom: 1.85185vh;
     background-image: url("/src/performance/img/title-bg.png");
     -webkit-background-size: 100% 100%;
        -moz-background-size: 100% 100%;
@@ -120,16 +121,15 @@ body {
          -o-background-size: auto 100%;
             background-size: auto 100%;
     background-repeat: no-repeat;
-    font-size: 1.5625vw;
+    font-size: 2.40741vh;
     text-align: center;
-    color: white;
-    margin-bottom: 20px; }
+    color: white; }
 
 .pc-part iframe {
   width: 100%;
-  height: -webkit-calc(100% - 3.125vw - 70px);
-  height: -moz-calc(100% - 3.125vw - 70px);
-  height: calc(100% - 3.125vw - 70px);
+  height: -webkit-calc(100% - 4.62963vh - 70px);
+  height: -moz-calc(100% - 4.62963vh - 70px);
+  height: calc(100% - 4.62963vh - 70px);
   border: 4px solid white;
   -webkit-border-radius: 8px;
      -moz-border-radius: 8px;
@@ -186,7 +186,7 @@ ol {
   float: right; }
 
 .tel-part .btn-group {
-  width: 180px;
+  width: 16.66667vh;
   border: 1px solid white;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -200,11 +200,11 @@ ol {
     clear: both; }
   .tel-part .btn-group button {
     width: 50%;
-    height: 36px;
+    height: 3.33333vh;
     display: block;
     float: left;
     background-color: transparent;
-    font-size: 14px;
+    font-size: 1.2963vh;
     text-align: center; }
     .tel-part .btn-group button.active {
       background-color: white;
@@ -213,20 +213,20 @@ ol {
 .tel-part .qrcode-block {
   margin-bottom: 2vh; }
   .tel-part .qrcode-block img {
-    width: 14.81481vh;
-    height: 14.81481vh;
+    width: 22.22222vh;
+    height: 22.22222vh;
     margin: 0 auto;
     display: block; }
   .tel-part .qrcode-block figcaption {
     padding: 5px 0;
-    font-size: 14px;
+    font-size: 1.48148vh;
     text-align: center;
     color: white; }
 
 .tel-part .tel-img {
   text-align: center; }
   .tel-part .tel-img img {
-    height: 27.77778vh; }
+    height: 37.03704vh; }
 
 @media screen and (min-height: 800px) {
   .tel-part .tel-img img {

@@ -19,10 +19,15 @@
         rel="stylesheet"
         href="/src/performance/performance.css"
     >
+    <meta
+        name="referrer"
+        content="no-referrer"
+    >
+    <script src="/src/common/ts-polyfill.min.js"></script>
 </head>
 
 <body>
-    <!--[if lt IE 9]>
+    <!--[if lte IE 9]>
         <div class="mask-forIE">
             <div class="bigger-text text-center">您的浏览器版本过低，请使用谷歌浏览器查看</div>
         </div>
@@ -35,7 +40,7 @@
             <div class="pc-part show-part">
                 <div class="title">现场大屏</div>
                 <iframe
-                    src="http://dev.akaba.cn/addons/execute/sign-show-index?acid=ADAOHRbx1me2mw&safe=5b85chno3ca6bg5"
+                    src="#"
                     frameborder="0"
                 ></iframe>
                 <div class="row">
@@ -60,10 +65,12 @@
                         <button
                             type="button"
                             class="active btn"
+                            data-type="wechat"
                         >公众号</button>
                         <button
                             type="button"
                             class="btn"
+                            data-type="activity"
                         >直接扫码</button>
                     </div>
                     <figure class="qrcode-block">
